@@ -20,6 +20,7 @@
     let lastX = 0;
     let lastY = 0;
     let hue = 0;
+    let direction = true;
     
     function drawing(e){
         if(!isDrawing) return;
@@ -36,6 +37,14 @@
         //update initial positon
         [lastX, lastY] = [e.offsetX, e.offsetY];
         hue++;
+        if(ctx.lineWidth >= 100 || ctx.lineWidth <=1 )
+            direction = !direction;
+        
+        if(direction){
+            ctx.lineWidth ++;
+        }else{
+            ctx.lineWidth --;
+        }
     }
     convas.addEventListener('mousemove', drawing);
     convas.addEventListener('mousedown', (e)=> {
