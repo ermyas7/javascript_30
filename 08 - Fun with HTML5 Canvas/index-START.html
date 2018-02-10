@@ -34,7 +34,10 @@
         [lastX, lastY] = [e.offsetX, e.offsetY];
     }
     convas.addEventListener('mousemove', drawing);
-    convas.addEventListener('mousedown', ()=> isDrawing = true);
+    convas.addEventListener('mousedown', (e)=> {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+    });
     convas.addEventListener('mouseup',() => isdrawing = false);
     convas.addEventListener('mouseout', () => isDrawing = false);
     
