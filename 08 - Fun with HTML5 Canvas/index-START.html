@@ -21,9 +21,22 @@
     let lastY = 0;
     
     function drawing(e){
-        console.log(e);
+        if(!isDrawing) return;
+        //begin line drawing
+        ctx.beginPath();
+        //go to initial position
+        ctx.moveTo(lastX, lastY);
+        //go to current mouse position and draw a line
+        ctx.lineTo(e.offsetX, e.offsetY);
+        //finish drawing
+        ctx.stroke();
+        //update initial positon
+        [lastX, lastY] = [e.offsetX, e.offsetY];
     }
     convas.addEventListener('mousemove', drawing);
+    convas.addEventListener('mousedown', ()=> isDrawing = true);
+    convas.addEventListener('mouseup',() => isdrawing = false);
+    convas.addEventListener('mouseout', () => isDrawing = false);
     
 </script>
 
