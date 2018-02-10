@@ -15,7 +15,7 @@
     ctx.lineJoin = "round";
     ctx.lineCap = "round";
     ctx.lineWidth = 100;
-    
+    ctx.globalCompositeOperation = "exclusion";
     let isDrawing = false;
     let lastX = 0;
     let lastY = 0;
@@ -53,6 +53,14 @@
     });
     convas.addEventListener('mouseup',() => isdrawing = false);
     convas.addEventListener('mouseout', () => isDrawing = false);
+    
+    //for touch screen devices
+    convas.addEventListener('touchmove', drawing);
+    convas.addEventListener('touchstart', (e)=> {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+    });
+    convas.addEventListener('touchend',() => isdrawing = false);
     
 </script>
 
