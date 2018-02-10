@@ -12,17 +12,20 @@
     const ctx = convas.getContext("2d");
     convas.width = window.innerWidth;
     convas.height = window.innerHeight;
-    ctx.strokeStyle = "#BADA55";
     ctx.lineJoin = "round";
     ctx.lineCap = "round";
+    ctx.lineWidth = 100;
     
     let isDrawing = false;
     let lastX = 0;
     let lastY = 0;
+    let hue = 0;
     
     function drawing(e){
         if(!isDrawing) return;
         //begin line drawing
+        
+        ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
         ctx.beginPath();
         //go to initial position
         ctx.moveTo(lastX, lastY);
@@ -32,6 +35,7 @@
         ctx.stroke();
         //update initial positon
         [lastX, lastY] = [e.offsetX, e.offsetY];
+        hue++;
     }
     convas.addEventListener('mousemove', drawing);
     convas.addEventListener('mousedown', (e)=> {
