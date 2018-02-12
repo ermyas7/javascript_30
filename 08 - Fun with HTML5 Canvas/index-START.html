@@ -7,7 +7,7 @@
 <body>
 <canvas id="draw" width="800" height="800"></canvas>
 <script>
-    
+    //select canvas element and define initial canvas properties
     const convas = document.querySelector("#draw");
     const ctx = convas.getContext("2d");
     convas.width = window.innerWidth;
@@ -16,10 +16,14 @@
     ctx.lineCap = "round";
     ctx.lineWidth = 100;
     ctx.globalCompositeOperation = "exclusion";
+    //define flag to draw or not
     let isDrawing = false;
+    //define initial coordinate
     let lastX = 0;
     let lastY = 0;
+    //define initial color hsl value
     let hue = 0;
+    //another flag for line width
     let direction = true;
     
     function drawing(e){
@@ -36,6 +40,7 @@
         ctx.stroke();
         //update initial positon
         [lastX, lastY] = [e.offsetX, e.offsetY];
+        //increment color value
         hue++;
         if(ctx.lineWidth >= 100 || ctx.lineWidth <=1 )
             direction = !direction;
