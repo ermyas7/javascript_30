@@ -1,3 +1,23 @@
-.container {
-    margin: auto;
+.content {
+    margin-top: !important 10%;
+    background: blue;
+}
+
+body {
+   background-color: cyan; 
+}
+
+.twitter{
+    margin-left: 5%;
+}
+
+.facebook{
+    margin-left: 10%;
+}
+
+.generate{
+    margin-left: 30%;
+}
+p{
+    margin-left: 80%;
 }

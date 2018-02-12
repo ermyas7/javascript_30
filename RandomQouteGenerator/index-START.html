@@ -9,23 +9,42 @@
 <body>
     <div class="container">
         
-        <div class="content col s8 col-offset s2">
-            <div class="title">
+        <div class="content col s5 push-s4 card-panel hoverable">
+            
+            <div class="title center-align">
+                
                 <h1>Random Qoute</h1>
             </div>
         
             <div class="qoute">
+                
+                <h3>
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s" 
+                </h3>
+                <p>-Ermyas</p>
+                
             </div>
         
             <div class="button">
+                
+                <a>  <i class="btn twitter ">twitt</i> </a> 
+                
+                <a>  <i class="btn facebook">share</i> </a>    
+                
+                <a> <i class="btn generate">Generate</i> </a>
+            
             </div>
             
         </div>
             
     </div>
   
-<script>    
-</script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
+<script>
+    const endpoint = "https://gist.githubusercontent.com/signed0/d70780518341e1396e11/raw/2a7f4af8d181a714f9d49105ed57fafb3f450960/quotes.json";
+    fetch(endpoint)
+    .then(blob => blob.json())
+    
+    
+</script> 
   </body>
 </html>
