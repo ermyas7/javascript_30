@@ -16,7 +16,7 @@
 }
 
 .twitt:hover,.share:hover, .generate:hover  {
-    background-color: aqua;
+    background-color: mediumorchid;
     color: white;
 }
 
@@ -43,6 +43,7 @@ p{
 
 .text{
     margin: 10%;
+    padding: 5%;
 }
 .title{
     margin: auto;

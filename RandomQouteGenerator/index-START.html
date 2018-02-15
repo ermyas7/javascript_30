@@ -17,9 +17,9 @@
             <div class="qoute">
                 
                 <h3 class="text">
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s" 
+                "Life is just a chance to grow a soul." 
                 </h3>
-                <p class="name">--Ermyas</p>
+                <p class="name">--A. Powell Davies</p>
                 
             </div>
         
@@ -51,33 +51,49 @@
     const qoutes = [];
    fetch(endpoint)
     .then(blob =>blob.json())
-    .then(data => qoutes.push(...data));
-   
-    const text = document.querySelector('.text');
-    const name = document.querySelector('.name');
+    .then(data => qoutes.push(...data)); 
     
-    function generateQoute(){
-        const randomQoute = Math.floor(Math.random() * 1600 + 1);
-        const randomColorBdy = Math.floor(Math.random() * 147 + 1);
-        const randomColorContent = Math.floor(Math.random() * 147 + 1);
-        const author = qoutes[randomQoute].quoteAuthor;
-        const qoute =  qoutes[randomQoute].quoteText;
-        text.innerHTML = qoute;
-        name.innerHTML = author;
+    const DOM = {
+        text: document.querySelector('.text'),
+        name : document.querySelector('.name'),
+        generate : document.querySelector('.generate'),
+        twitt : document.querySelector('.twitter-share'),
+        share : document.querySelector('.share'),
+    };
+    
+    const Random = {
+         qoute : Math.floor(Math.random() * 1600 + 1),
+         colorBdy : Math.floor(Math.random() * 147 + 1),
+         colorContent : Math.floor(Math.random() * 147 + 1)
+    };
+    
+    const random = function(){
+         return {
+         qoute : Math.floor(Math.random() * 1600 + 1),
+         colorBdy : Math.floor(Math.random() * 147 + 1),
+         colorContent : Math.floor(Math.random() * 147 + 1)
+    }
+    }
+    
+     function generateQoute(){
+        const rand = random();    
+        DOM.text.innerHTML =`"${qoutes[rand.qoute].quoteText}"`;
+        DOM.name.innerHTML = `--${qoutes[rand.qoute].quoteAuthor}`;
+         
+        DOM.twitt.addEventListener('click', function(){
+            
+        this.href = `https://twitter.com/intent/tweet?text=${qoutes[rand.qoute].quoteText} \n \n ${qoutes[rand.qoute].quoteAuthor}`;
+        }); 
+    }
         
-    }
-    function shareQoute(){
-        console.log(this);
-    }
     
-    const generate = document.querySelector('.generate');
-    const twitt = document.querySelector('.twitter-share');
-    const share = document.querySelector('.share');
-    generate.addEventListener('click', generateQoute);
-    twitt.addEventListener('click', shareQoute);
-    share.addEventListener('click', shareQoute);
     
-    //https://twitter.com/intent/tweet?text=Hello%20world
+    DOM.generate.addEventListener('click', generateQoute);
+    
+    DOM.share.addEventListener('click', function(){
+        
+    });
+    
     
 </script> 
   </body>
