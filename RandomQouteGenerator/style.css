@@ -1,6 +1,7 @@
 .content {
     margin: auto;
     width: 50%;
+    background-color: aqua;
 }
 .twitt,.share, .generate  {
     background-color: #4CAF50; /* Green */
@@ -11,6 +12,7 @@
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
+    margin: 2%;
 }
 
 .twitt:hover,.share:hover, .generate:hover  {
@@ -19,7 +21,7 @@
 }
 
 body {
-   
+   margin: 5%;
 }
 
 .twitter{
@@ -31,8 +33,18 @@ body {
 }
 
 .generate{
-    margin-left: auto;
+    margin-left: 24%;
 }
 p{
-    margin-left: auto;
+    margin-left: 80%;
+    margin-bottom: 10%;
+    margin-right: 2%;
+}
+
+.text{
+    margin: 10%;
+}
+.title{
+    margin: auto;
+    width: 30%;
 }
