@@ -1,23 +1,38 @@
 .content {
-    margin-top: !important 10%;
-    background: blue;
+    margin: auto;
+    width: 50%;
+}
+.twitt,.share, .generate  {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.twitt:hover,.share:hover, .generate:hover  {
+    background-color: aqua;
+    color: white;
 }
 
 body {
-   background-color: cyan; 
+   
 }
 
 .twitter{
-    margin-left: 5%;
+   
 }
 
 .facebook{
-    margin-left: 10%;
+    
 }
 
 .generate{
-    margin-left: 30%;
+    margin-left: auto;
 }
 p{
-    margin-left: 80%;
+    margin-left: auto;
 }

@@ -4,34 +4,34 @@
   <meta charset="UTF-8">
   <title>Random Qoute Generator 👀</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="container">
         
-        <div class="content col s5 push-s4 card-panel hoverable">
+        <div class="content">
             
-            <div class="title center-align">
+            <div class="title">
                 
                 <h1>Random Qoute</h1>
             </div>
         
             <div class="qoute">
                 
-                <h3>
+                <h3 class="text">
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s" 
                 </h3>
-                <p>-Ermyas</p>
+                <p class="name">--Ermyas</p>
                 
             </div>
         
-            <div class="button">
+            <div class="buttons">
                 
-                <a>  <i class="btn twitter ">twitt</i> </a> 
+                <button class="twitt">TWITT</button>
                 
-                <a>  <i class="btn facebook">share</i> </a>    
+                <button class="share">SHARE</button>    
                 
-                <a> <i class="btn generate">Generate</i> </a>
+                <button class="generate">GENERATE</button>
             
             </div>
             
@@ -47,7 +47,27 @@
     .then(blob =>blob.json())
     .then(data => qoutes.push(...data));
    
+    const text = document.querySelector('.text');
+    const name = document.querySelector('.name');
     
+    function generateQoute(){
+        const random = Math.floor(Math.random() * 1600);
+        const author = qoutes[random].quoteAuthor;
+        const qoute =  qoutes[random].quoteText;
+        text.innerHTML = qoute;
+        name.innerHTML = author;
+        
+    }
+    function shareQoute(){
+        console.log('clicked');
+    }
+    
+    const generate = document.querySelector('.generate');
+    const twitt = document.querySelector('.twitt');
+    const share = document.querySelector('.share');
+    generate.addEventListener('click', generateQoute);
+    twitt.addEventListener('click', shareQoute);
+    share.addEventListener('click', shareQoute);
     
     
     
