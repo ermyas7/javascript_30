@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
+<body class="whole">
     <div class="container">
          <div class="title">
                 
@@ -29,9 +29,7 @@
                    
                    href="#" data-size="large"> <button class="twitt"> TWEET </button> 
                 
-                </a>
-                
-                <button class="share">SHARE</button>    
+                </a>  
                 
                 <button class="generate">GENERATE</button>
             
@@ -58,7 +56,8 @@
         name : document.querySelector('.name'),
         generate : document.querySelector('.generate'),
         twitt : document.querySelector('.twitter-share'),
-        share : document.querySelector('.share'),
+        body : document.querySelector('.whole'),
+        content : document.querySelector('.content')
     };
     
     const Random = {
@@ -78,21 +77,23 @@
      function generateQoute(){
         const rand = random();    
         DOM.text.innerHTML =`"${qoutes[rand.qoute].quoteText}"`;
+         
         DOM.name.innerHTML = `--${qoutes[rand.qoute].quoteAuthor}`;
          
         DOM.twitt.addEventListener('click', function(){
             
         this.href = `https://twitter.com/intent/tweet?text=${qoutes[rand.qoute].quoteText} \n \n ${qoutes[rand.qoute].quoteAuthor}`;
         }); 
+         
+        DOM.content.style.backgroundColor = COLOR[rand.colorContent];
+        DOM.body.style.backgroundColor = COLOR[rand.colorBdy]; 
+         
+         
     }
         
-    
-    
     DOM.generate.addEventListener('click', generateQoute);
     
-    DOM.share.addEventListener('click', function(){
-        
-    });
+
     
     
 </script> 
