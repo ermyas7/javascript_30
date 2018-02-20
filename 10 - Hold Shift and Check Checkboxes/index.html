@@ -107,8 +107,26 @@
     
     const item = document.querySelectorAll('.inbox input[type="checkbox"]');
     
+    let lastChecked;
+    
     function checkboxHandler(e){
-        console.log(e);
+        let inBetween = false;
+        
+        if(e.shiftKey && this.checked){
+            item.forEach(checkbox => {
+                console.log(checkbox);
+                    if(this === checkbox || lastChecked === checkbox){
+                       inBetween = !inBetween;
+                        console.log('Starting to make them inbtween');
+                       }
+                    if(inBetween){
+                        checkbox.checked = true;
+                    }
+                    
+            });
+        }
+        lastChecked = this;
+        
     }
     
     item.forEach(checkbox => checkbox.addEventListener('click', checkboxHandler));
