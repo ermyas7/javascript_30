@@ -105,40 +105,14 @@
 
 <script>
     
-    const item = document.querySelectorAll('.item');
+    const item = document.querySelectorAll('.inbox input[type="checkbox"]');
     
+    function checkboxHandler(e){
+        console.log(e);
+    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    item.forEach(checkbox => checkbox.addEventListener('click', checkboxHandler));
+   
 </script>
 </body>
 </html>
